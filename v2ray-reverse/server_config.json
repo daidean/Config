@@ -1,0 +1,61 @@
+{
+    "log": {
+        "loglevel": "warning",
+        "access": "/etc/v2ray/access.log",
+        "error": "/etc/v2ray/error.log"
+    },
+    "reverse": {
+        "portals": [
+            {
+                "domain": "domain.com",
+                "tag": "Protals-Server"
+            }
+        ]
+    },
+    "inbounds": [
+        {
+            "protocol": "dokodemo-door",
+            "port": 1090,
+            "settings": {
+                "address": "127.0.0.1",
+                "port": 3389,
+                "network": "tcp"
+            },
+            "tag": "Any-RemoteDesktop"
+        },
+        {
+            "protocol": "vmess",
+            "port": 1091,
+            "settings": {
+                "clients": [
+                    {
+                        "id": "UUID",
+                        "alterId": 64
+                    }
+                ]
+            },
+            "tag": "Request-RemoteDesktop"
+        }
+    ],
+    "routing": {
+        "rules": [
+            {
+                "type": "field",
+                "inboundTag": [
+                    "Any-RemoteDesktop"
+                ],
+                "outboundTag": "Protals-Server"
+            },
+            {
+                "type": "field",
+                "inboundTag": [
+                    "Request-RemoteDesktop"
+                ],
+                "domain": [
+                    "full:domain.com"
+                ],
+                "outboundTag": "Protals-Server"
+            }
+        ]
+    }
+}
