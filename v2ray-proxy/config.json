@@ -1,0 +1,22 @@
+{
+    "log": {
+        "loglevel": "warning",
+        "access": "/etc/v2ray/access.log",
+        "error": "/etc/v2ray/error.log"
+    },
+    "inbounds": [{
+        "protocol": "vmess",
+        "port": 1080,
+        "settings": {
+            "clients": [{
+                "id": "UUID",
+                "alterId": 64
+            }]
+        }
+    }],
+    "outbounds": [{
+        "protocol": "freedom",
+        "settings": {},
+        "tag": "internet"
+    }]
+}

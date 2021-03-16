@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  v2ray:
+    image: v2ray/official
+    container_name: v2ray-proxy
+    restart: always
+    command: v2ray -config=/etc/v2ray/config.json
+    ports:
+      - "1080:1080"
+    volumes:
+      - ./config.json:/etc/v2ray/config.json
+      - ./access.log:/etc/v2ray/access.log
+      - ./error.log:/etc/v2ray/error.log
