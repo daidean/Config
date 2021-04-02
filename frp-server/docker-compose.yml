@@ -1,0 +1,13 @@
+version: "3.3"
+
+services:
+  frps:
+    image: oldiy/frps
+    container_name: frp-server
+    restart: always
+    command: ./frps -c ./frps.ini
+    ports:
+      - "Port:Port"
+    volumes:
+      - ./frps.ini:/frps.ini
+      - ./frps.log:/frps.log
