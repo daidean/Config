@@ -1,0 +1,3 @@
+if [ -f  ~/.bash_history ]; then
+	echo > ~/.bash_history
+fi
