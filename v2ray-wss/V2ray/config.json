@@ -1,0 +1,27 @@
+{
+	"log": {
+		"loglevel": "debug",
+		"access": "/etc/v2ray/access.log",
+		"error": "/etc/v2ray/error.log"
+	},
+	"inbounds": [{
+		"port": 1080,
+		"protocol": "vmess",
+		"settings": {
+			"clients": [{
+				"id": "UUID",
+				"alterId": 64
+			}]
+		},
+		"streamSettings": {
+			"network": "ws",
+			"wsSettings": {
+				"path": "/ray"
+			}
+		}
+	}],
+	"outbounds": [{
+		"protocol": "freedom",
+		"settings": {}
+	}]
+}
