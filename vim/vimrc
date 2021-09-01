@@ -1,0 +1,18 @@
+" Basic Config "
+set nocompatible
+set number
+set cursorline
+set showmatch
+set noeb
+set nobackup
+set nowb
+set noswapfile
+set encoding=utf-8
+
+syntax on
+colorscheme slate
+
+" Vim Plug "
+call plug#begin("~/.vim/plugged")
+Plug 'jiangmiao/auto-pairs'
+call plug#end()
